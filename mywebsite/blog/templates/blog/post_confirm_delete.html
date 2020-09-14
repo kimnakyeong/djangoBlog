@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+
+<section id="blog" class = "site-content center-relative">
+    <div class="container single-post-wrapper content-1070 center-relative">
+        <form method="POST" class="post-form center-relative" enctype="multipart/form-data">
+            {%csrf_token%}
+            <h2>정말로 {{post_list.title}}를 삭제하시나요?</h2>
+            <input type="submit" class="save btn btn-default" value="Confirm" />
+        </form>
+    </div>
+</section>
+
+{% endblock %}

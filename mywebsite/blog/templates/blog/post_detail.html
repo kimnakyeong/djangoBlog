@@ -1,0 +1,54 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+
+
+        <!-- Post Content -->
+        <div id="content" class="site-content center-relative">
+            <div class="single-post-wrapper content-1070 center-relative">
+
+                <article class="center-relative">
+                    <h1 class="entry-title content-660 center-relative">
+                        {{ post_list.title }}
+                    </h1>
+                    <div class="post-info content-660 center-relative">
+                        <div class="cat-links">
+                            <ul>
+                                <li><a href="#">
+                                    {% for c in post_list.category.all %}
+                                    {{ c }}
+                                    {% if not forloop.last %}
+                                        ,
+                                    {% endif %}
+                                    {% endfor %}
+                                </a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="entry-date published">{{ post_list.createDate }}</div>
+                        <div class="clear"></div>
+                    </div>
+
+                    
+
+                    <div class="entry-content">
+                        <div class="content-wrap content-660 center-relative">
+                            {% if post_list.title_image %}
+                                <img src="{{post_list.title_image.url}}" alt="">
+                            {%else%}
+                            
+                            {% endif %}
+                            <p>{{post_list.context}}</p>
+                            <br>
+                            <button type="button" class="btn btn-dark" onclick="location.href='{% url 'post_delete' pk=post_list.pk %}'">삭제하기</button>
+                            <button type="button" class="btn btn-light" onclick="location.href='{% url 'post_update' pk=post_list.pk %}'">수정하기</button>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </article>
+            </div>
+        </div>
+
+{% endblock %}
