@@ -7,7 +7,8 @@
         <form method="POST" class="post-form center-relative" enctype="multipart/form-data">
             {%csrf_token%}
             <h2>정말로 {{post_list.title}}를 삭제하시나요?</h2>
-            <input type="submit" class="save btn btn-default" value="Confirm" />
+            <!-- <button type="button" class="btn btn-secondary" onclick="location.href='{% url '' %}'">NO</button> -->
+            <input type="submit" class="save btn btn-danger" value="YES"/>
         </form>
     </div>
 </section>

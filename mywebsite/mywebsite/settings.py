@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from . import my_settings
+# from django.contrib.auth.models import User
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +30,8 @@ SECRET_KEY = 'q%o6(#z#d^!2z4api-6&f=h3@=hh)2o0f(ktn-jmvs!+xp#en0'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+#auth_user_model
 
 
 # Application definition
@@ -76,12 +81,7 @@ WSGI_APPLICATION = 'mywebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = my_settings.DATABASES
 
 
 # Password validation

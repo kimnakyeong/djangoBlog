@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from blog.models import Category, Post
 from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
+
 
 # Create your views here.
 def index(req):
@@ -13,6 +14,7 @@ def index(req):
     }
 
     return render(req, "index.html", context = context)
+
 
 class PostDetailView(DetailView):
     model = Post
@@ -32,7 +34,7 @@ class PostUpdate(UpdateView):
     fields = ["title", "title_image", "context", "category"]
     context_object_name = 'post_list'
 
-    
+
     
 
 
